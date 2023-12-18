@@ -1,4 +1,4 @@
-import animal from `@fakerjs/animal`;
+import animal from '@fakerjs/animal';
 
 /**
  * Generates fake data for the animals collection, including a
@@ -12,8 +12,8 @@ export default (nrOfAnimals = 10) => {
     animals.push({
       id: i,
       name: animal({
-        type: "pet",
-        locale: "en_US",
+        type: 'pet',
+        locale: 'en_US',
       }),
     });
   }

@@ -1,7 +1,7 @@
-import express from "express";
-import Boom from "@hapi/boom";
-import morgan from "morgan";
-import persistence from "./persistence/index.js";
+import express from 'express';
+import Boom from '@hapi/boom';
+import morgan from 'morgan';
+import persistence from './persistence/index.js';
 
 const PORT = 3000;
 
@@ -13,16 +13,16 @@ function asyncMiddleware(fn) {
 
 const app = express();
 
-app.use(morgan("dev"));
+app.use(morgan('dev'));
 app.use(express.json());
 
 app.use((_, res, next) => {
-  res.set("X-Database-Used", process.env.MONGO_URL ? "MongoDB" : "SQLite");
+  res.set('X-Database-Used', process.env.MONGO_URL ? 'MongoDB' : 'SQLite');
   next();
 });
 
 app.get(
-  "/animals",
+  '/animals',
   asyncMiddleware(async (_, res) => {
     const animals = await persistence.getAnimals();
     res.json(animals);
@@ -30,7 +30,7 @@ app.get(
 );
 
 app.get(
-  "/animals/:id",
+  '/animals/:id',
   asyncMiddleware(async (req, res) => {
     const animal = await persistence.getAnimal(Number(req.params.id));
     res.json(animal);
@@ -52,7 +52,7 @@ persistence
     });
   })
   .catch((err) => {
-    console.error("Database failed to connect, check the error below");
+    console.error('Database failed to connect, check the error below');
     console.error(err);
     process.exit(1);
   });
