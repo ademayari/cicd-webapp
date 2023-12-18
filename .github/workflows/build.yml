@@ -16,9 +16,6 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Change to webapp directory
-        run: cd webapp
-
       - name: Install dependencies
         run: yarn install
         working-directory: ./webapp
@@ -26,3 +23,11 @@ jobs:
       - name: Lint Code
         run: yarn lint
         working-directory: ./webapp
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./webapp
+          file: ./webapp/Dockerfile
+          tags: ademayari/webapp:latest
+          push: false
