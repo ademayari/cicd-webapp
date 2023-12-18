@@ -39,7 +39,7 @@ app.get(
 
 app.use((err, _, res, next) => {
   res.status(Boom.isBoom(err) ? err.output.statusCode : 500).json({
-    error: err.message,
+    error: err.message
   });
   next();
 });
