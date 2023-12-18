@@ -1,4 +1,3 @@
----
 name: Build and test
 on:
   push:
@@ -22,6 +21,10 @@ jobs:
 
       - name: Lint Code
         run: yarn lint
+        working-directory: ./webapp
+
+      - name: Run Tests
+        run: yarn test
         working-directory: ./webapp
 
       - name: Log in to Docker Hub
