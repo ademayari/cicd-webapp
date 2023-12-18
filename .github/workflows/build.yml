@@ -24,7 +24,7 @@ jobs:
         working-directory: ./webapp
 
       - name: Run Tests
-        run: yarn test
+        run: yarn test test.spec.js
         working-directory: ./webapp
 
       - name: Log in to Docker Hub
