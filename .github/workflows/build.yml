@@ -16,8 +16,13 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Change to webapp directory
+        run: cd webapp
+
       - name: Install dependencies
         run: yarn install
+        working-directory: ./webapp
 
       - name: Lint Code
         run: yarn lint
+        working-directory: ./webapp
