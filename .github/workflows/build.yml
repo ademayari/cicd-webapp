@@ -38,7 +38,7 @@ jobs:
           push: false
 
       - name: Run Docker image
-        run: docker run -d -p 3000:3000 ademayari/webapp:latest
+        run: docker run -d -p 3000:3000 ademayari/webapp
 
       - name: Run Tests
         run: yarn test test.spec.js
@@ -49,5 +49,5 @@ jobs:
         with:
           context: ./webapp
           file: ./webapp/Dockerfile
-          tags: ademayari/webapp:latest
+          tags: ademayari/webapp
           push: false
