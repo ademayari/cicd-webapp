@@ -50,4 +50,4 @@ jobs:
           context: ./webapp
           file: ./webapp/Dockerfile
           tags: ademayari/webapp:latest
-          push: true
+          push: false
