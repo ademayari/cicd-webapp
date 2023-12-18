@@ -34,7 +34,7 @@ jobs:
         with:
           context: ./webapp
           file: ./webapp/Dockerfile
-          tags: ademayari/webapp:latest
+          tags: ademayari/webapp
           push: false
 
       - name: Run Docker image
