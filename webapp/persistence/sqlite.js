@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import sqlite3 from 'sqlite3'
+import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import Boom from '@hapi/boom';
 import generateFakeData from './generateFakeData.js';
@@ -13,7 +13,7 @@ export async function initialize() {
 
   db = await open({
     filename: './database/database.sqlite',
-    driver: sqlite3.Database
+    driver: sqlite3.Database,
   });
 
   await db.exec('CREATE TABLE IF NOT EXISTS animal(id INTEGER PRIMARY KEY, name TEXT)');
